@@ -1,0 +1,5 @@
+<h2><%= @message.title%></h2>
+<%= @message.description%>
+<%= link_to 'Back', root_path, class: "btn btn-default"%>
+
+<%= link_to 'Edit Message', edit_message_path(@message), class: "btn btn-default"%>
