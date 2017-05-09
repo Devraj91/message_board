@@ -1,5 +1,5 @@
 <%= simple_form_for @message do |f| %>
-  <%= f.input :title, label: "Message Title", placeholder: "Title"%>
-  <%= f.input :description, label: "Message Description", placeholder: "Description"%>
-<%= f.button :submit,  class: "btn btn-default"%>
+  <%= f.input :title, label: "Message Title", placeholder: "Title", required: true %>
+  <%= f.input :description, label: "Message Description", placeholder: "Description", required: true %>
+<%= f.button :submit, data: { disable_with: "Please wait.." }, class: "btn btn-default"%>
 <%end%>
