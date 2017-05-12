@@ -8,7 +8,10 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><%= link_to 'Home', root_path%>
+        <li class="active"><%= link_to root_path do%>
+          Home    <% if user_signed_in? %><span class="badge"><%= Message.count%></span>
+          <%end%><%end%>
+        </li>
       </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">
@@ -25,8 +28,9 @@
                 <li><%= link_to 'Log In', new_user_session_path%></li>
           <% end %>
       </ul>
+
       <% if user_signed_in? %>
-        <p class="navbar-text">Signed in as <%= current_user.email%></p>
+        <p class="navbar-text">Signed in as <%= current_user.email[/[^@]+/]%></p>
             <%= link_to 'New Message', new_message_path, class: "navbar-right navbar-text navbar-link"%>
       <% end %>
     </div><!-- /.navbar-collapse -->
